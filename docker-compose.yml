@@ -27,7 +27,6 @@ services:
     environment:
      - "PMA_HOST=mariadb"
      - "PMA_PORT=3306"
-     - "PMA_ABSOLUTE_URI=https://phpmyadmin.your.domain"
     external_links:
      - mariadb:mariadb
     volumes:
