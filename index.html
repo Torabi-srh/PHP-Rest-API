@@ -100,11 +100,11 @@
       e.preventDefault();
       console.log("js call ajax delete request");
       let oldUrl = "/api/controllers/productsController.php";
-      let newUrl = "/api/product/saveApi.php";
+      let newUrl = "/api/product/delete.php";
       ajaxCall(
         newUrl,
-        "DELETE",
-        { "id": 2 }
+        "POST",
+        { "id": [3,4,2] }
       );
 
     });

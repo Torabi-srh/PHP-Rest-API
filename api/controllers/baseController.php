@@ -92,7 +92,7 @@ class BaseController
 
   function deleteRequest($input)
   { 
-    if (empty($input['id'])) {
+    if (!empty($input['id'])) {
       try {
         foreach ($input['id'] as $key => $value) {
           $resp = $this->model->deleteById($value);

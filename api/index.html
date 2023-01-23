@@ -62,6 +62,8 @@
         }
       });
     });
+
+
     $("#btn-getSKU").click(function (e) {
       e.preventDefault();
       console.log("js call ajax get request");
@@ -105,8 +107,7 @@
         newUrl,
         "DELETE",
         { "id": 2 }
-      );
-
+      ); 
     });
     $("#btn-postDD").click(function (e) {
       e.preventDefault();
@@ -133,8 +134,7 @@
         {
           "sku": randomStr(5), "name": "DVD", "price": "100.00", "productType": "dvd", "size": 10
         }
-      );
-
+      ); 
     });
     $("#btn-postF").click(function (e) {
       e.preventDefault();

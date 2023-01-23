@@ -3,14 +3,22 @@
 
 
 #ROUTES
-| ACTION             | REQUEST    | #URL                                                            |
-| ---                | ---        | ---                                                             |
-| Get All products   | GET        | "/api/controllers/productsController.php?action=getall"         |
-| ---                | ---        | ---                                                             |
-| Get products by ID | GET        | "/api/controllers/productsController.php?action=getbyid&id=1"   |
-| ---                | ---        | ---                                                             |
-| Add products       | POST       | "/api/controllers/productsController.php"                       |
-| ---                | ---        | ---                                                             |
-| Update products    | PUT        | "/api/controllers/productsController.php"                       |
-| ---                | ---        | ---                                                             |
-| Delete products    | DELETE     | "/api/controllers/productsController.php"                       |
+| ACTION             | REQUEST    | #URL                            |
+| Get All products   | GET        | "/api/product/get.php"          |
+| Get products by ID | GET        | "/api/product/get.php?id=4"     |
+| Get products by SKU| GET        | "/api/product/get.php?sku=test" |
+| Add products       | POST       | "/api/product/saveApi.php"      |
+| Update products    | PUT        | "/api/product/saveApi.php"      |
+| Delete products    | POST       | "/api/product/delete.php"       |
+
+
+
+
+
+
+
+
+
+
+
+
