@@ -19,8 +19,8 @@
     $("#btn-getA").click(function (e) {
       e.preventDefault();
       console.log("js call ajax get request");
-      let oldUrl = "/api/controllers/productsController.php?action=getall";
-      let newUrl = "/api/product/get.php";
+      let oldUrl = "/controllers/productsController.php?action=getall";
+      let newUrl = "/product/get.php";
       $.ajax({
         url: newUrl,
         method: "GET",
@@ -42,8 +42,8 @@
     $("#btn-get").click(function (e) {
       e.preventDefault();
       console.log("js call ajax get request");
-      let oldUrl = "/api/controllers/productsController.php?action=getall";
-      let newUrl = "/api/product/get.php?id=4";
+      let oldUrl = "/controllers/productsController.php?action=getall";
+      let newUrl = "/product/get.php?id=4";
       $.ajax({
         url: newUrl,
         method: "GET",
@@ -65,8 +65,8 @@
     $("#btn-getSKU").click(function (e) {
       e.preventDefault();
       console.log("js call ajax get request");
-      let oldUrl = "/api/controllers/productsController.php?action=getbysku&sku=testSku";
-      let newUrl = "/api/product/get.php?sku=test";
+      let oldUrl = "/controllers/productsController.php?action=getbysku&sku=testSku";
+      let newUrl = "/product/get.php?sku=test";
       $.ajax({
         url: newUrl,
         method: "GET",
@@ -88,8 +88,8 @@
     $("#btn-put").click(function (e) {
       e.preventDefault();
       console.log("js call ajax put request");
-      let oldUrl = "/api/controllers/productsController.php";
-      let newUrl = "/api/product/saveApi.php";
+      let oldUrl = "/controllers/productsController.php";
+      let newUrl = "/product/saveApi.php";
       ajaxCall(
         newUrl,
         "PUT",
@@ -99,8 +99,8 @@
     $("#btn-delete").click(function (e) {
       e.preventDefault();
       console.log("js call ajax delete request");
-      let oldUrl = "/api/controllers/productsController.php";
-      let newUrl = "/api/product/saveApi.php";
+      let oldUrl = "/controllers/productsController.php";
+      let newUrl = "/product/saveApi.php";
       ajaxCall(
         newUrl,
         "DELETE",
@@ -111,8 +111,8 @@
     $("#btn-postDD").click(function (e) {
       e.preventDefault();
       console.log("js call ajax post request");
-      let oldUrl = "/api/controllers/productsController.php";
-      let newUrl = "/api/product/saveApi.php";
+      let oldUrl = "/controllers/productsController.php";
+      let newUrl = "/product/saveApi.php";
       ajaxCall(
         newUrl,
         "POST",
@@ -125,8 +125,8 @@
     $("#btn-postD").click(function (e) {
       e.preventDefault();
       console.log("js call ajax post request");
-      let oldUrl = "/api/controllers/productsController.php";
-      let newUrl = "/api/product/saveApi.php";
+      let oldUrl = "/controllers/productsController.php";
+      let newUrl = "/product/saveApi.php";
       ajaxCall(
         newUrl,
         "POST",
@@ -139,8 +139,8 @@
     $("#btn-postF").click(function (e) {
       e.preventDefault();
       console.log("js call ajax post request");
-      let oldUrl = "/api/controllers/productsController.php";
-      let newUrl = "/api/product/saveApi.php";
+      let oldUrl = "/controllers/productsController.php";
+      let newUrl = "/product/saveApi.php";
       ajaxCall(
         newUrl,
         "POST",
@@ -153,8 +153,8 @@
     $("#btn-postB").click(function (e) {
       e.preventDefault();
       console.log("js call ajax post request");
-      let oldUrl = "/api/controllers/productsController.php";
-      let newUrl = "/api/product/saveApi.php";
+      let oldUrl = "/controllers/productsController.php";
+      let newUrl = "/product/saveApi.php";
       ajaxCall(
         newUrl,
         "POST",
