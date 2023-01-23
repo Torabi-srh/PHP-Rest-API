@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <button id="btn-getA">Get ALL</button>
+  <button id="btn-get">Get ID</button>
+  <button id="btn-getSKU">Get SKU</button>
+  <button id="btn-put">Update Data</button>
+  <button id="btn-postDD">Post Duplicate</button>
+  <button id="btn-postD">Post DVD</button>
+  <button id="btn-postF">Post Furniture</button>
+  <button id="btn-postB">Post BOOK</button>
+  <button id="btn-delete">Delete Data</button>
+  <div class="items"></div>
+  <br>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+    $("#btn-getA").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax get request");
+      let oldUrl = "/api/controllers/productsController.php?action=getall";
+      let newUrl = "/api/product/get.php";
+      $.ajax({
+        url: newUrl,
+        method: "GET",
+        dataType: "html",
+        success: function (response) {
+          try {
+            var result = JSON.parse(response);
+            if (!result.error) {
+              printResult(result);
+            } else {
+              console.log(result.message);
+            }
+          } catch (e) {
+            console.log(response);
+          }
+        }
+      });
+    });
+    $("#btn-get").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax get request");
+      let oldUrl = "/api/controllers/productsController.php?action=getall";
+      let newUrl = "/api/product/get.php?id=4";
+      $.ajax({
+        url: newUrl,
+        method: "GET",
+        dataType: "html",
+        success: function (response) {
+          try {
+            var result = JSON.parse(response);
+            if (!result.error) {
+              printResult(result);
+            } else {
+              console.log(result.message);
+            }
+          } catch (e) {
+            console.log(response);
+          }
+        }
+      });
+    });
+    $("#btn-getSKU").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax get request");
+      let oldUrl = "/api/controllers/productsController.php?action=getbysku&sku=testSku";
+      let newUrl = "/api/product/get.php?sku=test";
+      $.ajax({
+        url: newUrl,
+        method: "GET",
+        dataType: "html",
+        success: function (response) {
+          try {
+            var result = JSON.parse(response);
+            if (!result.error) {
+              printResult(result);
+            } else {
+              console.log(result.message);
+            }
+          } catch (e) {
+            console.log(response);
+          }
+        }
+      });
+    });
+    $("#btn-put").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax put request");
+      let oldUrl = "/api/controllers/productsController.php";
+      let newUrl = "/api/product/saveApi.php";
+      ajaxCall(
+        newUrl,
+        "PUT",
+        { "id": 4, "name": randomStr(3) }
+      );
+    });
+    $("#btn-delete").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax delete request");
+      let oldUrl = "/api/controllers/productsController.php";
+      let newUrl = "/api/product/saveApi.php";
+      ajaxCall(
+        newUrl,
+        "DELETE",
+        { "id": 2 }
+      );
+
+    });
+    $("#btn-postDD").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax post request");
+      let oldUrl = "/api/controllers/productsController.php";
+      let newUrl = "/api/product/saveApi.php";
+      ajaxCall(
+        newUrl,
+        "POST",
+        {
+          "sku": "test", "name": "DVD", "price": "100.00", "productType": "dvd", "size": 10
+        }
+      );
+
+    });
+    $("#btn-postD").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax post request");
+      let oldUrl = "/api/controllers/productsController.php";
+      let newUrl = "/api/product/saveApi.php";
+      ajaxCall(
+        newUrl,
+        "POST",
+        {
+          "sku": randomStr(5), "name": "DVD", "price": "100.00", "productType": "dvd", "size": 10
+        }
+      );
+
+    });
+    $("#btn-postF").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax post request");
+      let oldUrl = "/api/controllers/productsController.php";
+      let newUrl = "/api/product/saveApi.php";
+      ajaxCall(
+        newUrl,
+        "POST",
+        {
+          "sku": randomStr(6), "name": "FURNITURE", "price": "100.00", "productType": "furniture", "height": 20, "length": 30, "width": 40
+        }
+      );
+
+    });
+    $("#btn-postB").click(function (e) {
+      e.preventDefault();
+      console.log("js call ajax post request");
+      let oldUrl = "/api/controllers/productsController.php";
+      let newUrl = "/api/product/saveApi.php";
+      ajaxCall(
+        newUrl,
+        "POST",
+        {
+          "sku": randomStr(5), "name": "BOOK", "price": "100.00", "productType": "book", "weight": 45
+        }
+      );
+
+    });
+    function ajaxCall(url, method, data) {
+      $.ajax({
+        url: url,
+        method: method,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(data),
+        success: function (response) {
+          console.log(response);
+        }
+      });
+
+    }
+
+    function printResult(result) {
+      $(".items").empty();
+      for (var i = 0; i < result.length; i++) {
+        $(".items").append(result[i]);
+      }
+
+    }
+    function randomStr(length) {
+      var result = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    }
+  </script>
+</body>
+
+</html>
