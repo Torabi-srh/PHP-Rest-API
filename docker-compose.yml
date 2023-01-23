@@ -26,13 +26,19 @@ services:
      - 'php'
 
   mariadb:
-    image: mariadb:10.3.9
+    image: mariadb
     container_name: mariadb
     restart: 'on-failure'
+    command: --default-authentication-plugin=mysql_native_password
+    security_opt:
+      - apparmor:unconfined
     environment:
       MYSQL_ROOT_PASSWORD: secretFEF2f32fwec23h64
+      MYSQL_DATABASE: local
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
     volumes:
-     - "./mariadb/:/var/lib/mysql"
+        - mysql:/var/lib/mysql
      
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -41,9 +47,14 @@ services:
     ports:
      - 8080:80
     environment:
-     - "PMA_HOST=mariadb"
-     - "PMA_PORT=3306"
+     - PMA_HOST=mariadb
+     - PMA_PORT=3306
+     - PMA_USER=test
+     - PMA_PASSWORD=test
     external_links:
      - mariadb:mariadb
     volumes:
      - "./phpmyadmin/sessions:/sessions"
+
+volumes:
+  mysql:
